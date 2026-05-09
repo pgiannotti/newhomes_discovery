@@ -1,0 +1,33 @@
+# Copy to config.toml. Anything left blank uses environment fallbacks.
+
+[paths]
+db        = "./data/newhomes.db"
+html_cache = "./data/html_cache"     # gzipped raw HTML for replay
+log_dir    = "./data/logs"
+
+[crawl]
+user_agent       = "newhomes-discovery/0.1 (+contact: paul.giannotti@gmail.com)"
+rate_limit_rps   = 1.0               # per host
+timeout_seconds  = 30
+respect_robots   = true              # set false only if you've cleared it legally
+
+[playwright]
+headless = true
+# proxy = "http://user:pass@residential.example.com:8000"   # optional
+
+[anthropic]
+# api_key = "sk-ant-..."             # or set ANTHROPIC_API_KEY env var
+model_strong = "claude-sonnet-4-6"   # for parent-brand resolution
+model_cheap  = "claude-haiku-4-5"    # for bulk About-page extraction
+
+[serper]
+# api_key = "..."                    # or set SERPER_API_KEY env var
+
+[discovery]
+# Bound how aggressive each source is per run.
+realestate_max_pages   = 100
+domain_max_pages       = 100
+serp_max_queries       = 1000
+
+# Comma-separated states to include, or "all".
+states = "all"

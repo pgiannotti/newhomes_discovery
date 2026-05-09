@@ -1,0 +1,2 @@
+[console_scripts]
+newhomes = newhomes.cli.main:app
